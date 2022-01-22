@@ -23,18 +23,16 @@ export class Table {
 		if (rowA.length !== rowB.length) {
 			return false;
 		}
-
+	
+		let match = true;
 		for (let i = 0; i < rowA.length; i++) {
-			let found = false;
-			for (let j = 0; j < rowB.length; j++) {
-				if (rowA[i] === rowB[j]) {
-					found = true;
-				}
+			if (rowA[i] !== rowB[i]) {
+			   match = false;
+			   break;
 			}
-			if (!found) { return false; }
 		}
-
-		return true;
+		
+		return match;
 	}
 
 	addRow(dataArray: Tuple) {
